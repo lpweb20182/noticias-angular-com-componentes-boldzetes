@@ -1,0 +1,29 @@
+<div>
+  <h2>Todas as notícias</h2>
+  <div id="lista-pesquisar">
+    <input type="search" placeholder="Digite para pesquisar..." [(ngModel)]="listaPesquisa">
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Título</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Publicada</th>
+      <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let noticia of noticiasParaLista()">
+      <td>{{ noticia.id }}</td>
+      <td>{{ noticia.titulo }}</td>
+      <td>{{ noticia.autor }}</td>
+      <td>{{ noticia.data }}</td>
+      <td>
+        <button (click)="editar(noticia)">Editar</button> |
+        <button (click)="excluir(noticia)">Excluir</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

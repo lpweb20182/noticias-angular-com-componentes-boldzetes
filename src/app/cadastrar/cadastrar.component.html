@@ -1,30 +1,4 @@
-<h1>Notícias::Angular</h1>
-<hr>
-
-<hr>
-
-<app-noticias-recentes [noticias]="noticiasPublicadas()" (mostrou)="onMostrou($event)" *ngIf="tela == 'home'"></app-noticias-recentes>
-
-<div *ngIf="tela == 'leitura' && leituraNoticia">
-  <h2>{{ leituraNoticia.titulo }}</h2>
-  <div class="leitura-noticia-info">
-    Por {{ leituraNoticia.autor }}
-    <span *ngIf="leituraNoticia.emailDoAutor">({{ leituraNoticia.emailDoAutor }})</span>
-    em {{ leituraNoticia.data | date }}
-  </div>
-  <hr>
-  <div class="leitura-noticia-conteudo">
-    {{ leituraNoticia.conteudo }}
-  </div>
-  <div class="leitura-noticia-rodape">
-    <button (click)="fechar()">Fechar</button>
-  </div>
-</div>
-
-
-
-
-<div *ngIf="tela == 'cadastro' || tela == 'edicao'">
+<div>
   <h2>Cadastrar notícia</h2>
   <form #cadastro="ngForm" (submit)="salvar(cadastro)">
     <div>
@@ -49,8 +23,7 @@
     </div>
     <div>
       <button type="submit" [disabled]="!cadastro.form.valid">Salvar</button>
-      <button type="reset" *ngIf="tela == 'cadastro'" formnovalidate>Limpar</button>
-      <button *ngIf="tela == 'edicao'" (click)="cancelarEdicao()" formnovalidate>Cancelar</button>
+      <button type="reset" formnovalidate>Limpar</button>
     </div>
   </form>
 </div>
